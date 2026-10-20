@@ -18,11 +18,18 @@ let HOC = document.querySelector("#HotOrCold");
 
 guessButton.addEventListener('click', function(){
     chanceShower.textContent = "You have " + triesLeft + "tries left!";
+    
+
+
 
     if(+guessInput.value === answer){
        guessMessage.textContent = winMessage;
        chanceShower = "YOU GOT IT! Nevermind! :D"
        guessMessage.style.color = "green";
+       if(+guessInput.value > 99) {
+        guessMessage.textContent = "ERROR! too high!";
+        guessMessage.style.color = "red";
+       }
        console.log("You won!");
     } else if(+guessInput.value < answer){
         guessMessage.textContent = "Too low!"
@@ -42,6 +49,8 @@ guessButton.addEventListener('click', function(){
     
 
     
+
+    
     if(triesLeft >= 1) {
        triesLeft = triesLeft - 1;
        console.log(triesLeft);
@@ -49,6 +58,8 @@ guessButton.addEventListener('click', function(){
        guessMessage.textContent = "Yeah, its joever..."
        console.log("Sorry thats all! you lost :(")
     }
+
+
      
 });
 
